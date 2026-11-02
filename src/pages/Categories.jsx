@@ -1,0 +1,3 @@
+import { Link } from "react-router-dom";
+import { categories } from "../data/products.js";
+export default function Categories(){const icons=["💻","🎮","🖥️","📱","🎒"];return <section className="section-container"><div className="section-heading"><div><h2>Shop by Category</h2><span className="heading-line"/></div></div><div className="category-grid">{categories.map((name,i)=><Link className="category-card" key={name} to={`/products?category=${encodeURIComponent(name)}`}><span>{icons[i]}</span><strong>{name}</strong><span className="category-cta">Browse products →</span></Link>)}</div></section>}

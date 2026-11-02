@@ -1,0 +1,5 @@
+import { Link } from "react-router-dom";
+import { products } from "../data/products.js";
+import { useWishlist } from "../context/WishlistContext.jsx";
+import ProductCard from "../components/ProductCard.jsx";
+export default function Wishlist(){const {wishlist}=useWishlist();const saved=products.filter(p=>wishlist.includes(p.id));return <section className="section-container"><div className="section-heading"><div><h2>Your Wishlist</h2><span className="heading-line"/></div></div>{saved.length?<div className="product-grid">{saved.map(p=><ProductCard key={p.id} product={p}/>)}</div>:<div className="empty-state"><div className="empty-icon">♡</div><h3>Your wishlist is empty</h3><p>Save products you want to revisit.</p><Link className="primary-button" to="/products">Explore Products</Link></div>}</section>}
